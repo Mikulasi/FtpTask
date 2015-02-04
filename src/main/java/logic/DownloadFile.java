@@ -14,7 +14,7 @@ public class DownloadFile {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the file you need to download: ");
         String remoteFile = scanner.nextLine();
-        System.out.println("Enter the file name to upload: ");
+        System.out.println("Enter the path on the local computer and filename to save file: ");
         String downloadFile = scanner.nextLine();
 //        String remoteFile = "/pub/OJI/MRJPlugin.sit.hqx";
 //        File downloadFile = new File("d:/Яковлев/MRJPlugin.sit.hqx");
@@ -22,7 +22,7 @@ public class DownloadFile {
         try {
             outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile));
         } catch (FileNotFoundException e) {
-            System.out.println("Error! File not found");
+            System.out.println("Error! You should name your file");
         }
         boolean success;
         try {

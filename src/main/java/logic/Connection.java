@@ -12,7 +12,7 @@ public class Connection {
 
 
     private static final Connection INSTANCE = new Connection();
-
+    private static FTPClient ftpClient = new FTPClient();
     private Connection() {
     }
 
@@ -24,7 +24,7 @@ public class Connection {
 
     protected static FTPClient getConnection() throws IOException {
 
-        FTPClient ftpClient = new FTPClient();
+
         String path = FTP_MOZILLA_ORG;
         int port = PORT;
         ftpClient.connect(path, port);
@@ -36,7 +36,7 @@ public class Connection {
         return ftpClient;
     }
 
-    protected static void releaseConnection(FTPClient ftpClient) {
+    protected static void releaseConnection() {
         ftpClient.isConnected();
         try {
             ftpClient.logout();

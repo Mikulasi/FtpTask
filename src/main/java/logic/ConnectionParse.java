@@ -11,7 +11,7 @@ public class ConnectionParse {
         try {
             CreateCatalog.catalogList(ftpClient);
         } finally {
-            Connection.releaseConnection(ftpClient);
+            Connection.releaseConnection();
         }
     }
 }
