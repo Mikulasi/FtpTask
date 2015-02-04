@@ -42,7 +42,7 @@ public class Connection {
             ftpClient.logout();
             ftpClient.disconnect();
         } catch (IOException e) {
-            System.out.println("Error while releasing connection!");;
+            System.out.println("Error while releasing connection!");
         }
     }
 }

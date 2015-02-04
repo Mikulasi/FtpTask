@@ -1,6 +1,7 @@
 package main;
 
 import exception.CanNotRetrieveFileException;
+import logic.ConnectionParse;
 import logic.DownloadFile;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ public class Main {
 
         public static void main(String[] args) throws IOException, CanNotRetrieveFileException {
 
-//            ConnectionParse.connectionParse();
+            ConnectionParse.connectionParse();
             DownloadFile.downloadFile();
         }
 
