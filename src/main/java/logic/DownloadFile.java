@@ -10,7 +10,7 @@ public class DownloadFile {
 
     public static void downloadFile() throws IOException, CanNotRetrieveFileException {
 
-        FTPClient ftpClient = Connection.getInstance().getConnection();
+        FTPClient ftpClient = Connection.ConnectionManager.getInstance().getConnection();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the file you need to download: ");
         String remoteFile = scanner.nextLine();

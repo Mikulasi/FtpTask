@@ -7,11 +7,11 @@ import java.io.IOException;
 public class ConnectionParse {
 
     public static void connectionParse() throws IOException {
-        FTPClient ftpClient = Connection.getInstance().getConnection();
+        FTPClient ftpClient = Connection.ConnectionManager.getInstance().getConnection();
         try {
             CreateCatalog.catalogList(ftpClient);
         } finally {
-            Connection.releaseConnection();
+            Connection.ConnectionManager.getInstance().releaseConnection();
         }
     }
 }
