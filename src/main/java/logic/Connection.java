@@ -7,24 +7,24 @@ import java.io.IOException;
 
 public class Connection {
 
+    public static final String FTP_MOZILLA_ORG = "ftp.mozilla.org";
+    public static final int PORT = 21;
+    private static FTPClient ftpClient = new FTPClient();
+
     private Connection() {
     }
 
-    public static class ConnectionManager {
-
-        public static final String FTP_MOZILLA_ORG = "ftp.mozilla.org";
-        public static final int PORT = 21;
+    private static class ConnectionManager {
         private final static Connection MANAGER_INSTANCE = new Connection();
+    }
         public static Connection getInstance() {
             return ConnectionManager.MANAGER_INSTANCE;
         }
 
-    }
-        protected static FTPClient getConnection() throws IOException {
+        public static FTPClient getConnection() throws IOException {
 
-
-            String path = ConnectionManager.FTP_MOZILLA_ORG;
-            int port = ConnectionManager.PORT;
+            String path = FTP_MOZILLA_ORG;
+            int port = PORT;
             ftpClient.connect(path, port);
             ftpClient.login("anonymous", "anonymous");
             int code = ftpClient.getReplyCode();
@@ -34,9 +34,7 @@ public class Connection {
             return ftpClient;
         }
 
-    private static FTPClient ftpClient = new FTPClient();
-
-        protected static void releaseConnection() {
+        public static void releaseConnection() {
             ftpClient.isConnected();
             try {
                 ftpClient.logout();

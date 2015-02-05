@@ -10,14 +10,12 @@ public class DownloadFile {
 
     public static void downloadFile() throws IOException, CanNotRetrieveFileException {
 
-        FTPClient ftpClient = Connection.ConnectionManager.getInstance().getConnection();
+        FTPClient ftpClient = Connection.getInstance().getConnection();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the file you need to download: ");
+        System.out.println("Enter the file you need to download: ");// /pub/OJI/MRJPlugin.sit.hqx
         String remoteFile = scanner.nextLine();
-        System.out.println("Enter the path on the local computer and filename to save file: ");
+        System.out.println("Enter the path on the local computer and filename to save file: ");// d:/Яковлев/MRJPlugin.sit.hqx
         String downloadFile = scanner.nextLine();
-//        String remoteFile = "/pub/OJI/MRJPlugin.sit.hqx";
-//        File downloadFile = new File("d:/Яковлев/MRJPlugin.sit.hqx");
         OutputStream outputStream = null;
         try {
             outputStream = new BufferedOutputStream(new FileOutputStream(downloadFile));
@@ -36,7 +34,7 @@ public class DownloadFile {
             }
 
             if (success) {
-                System.out.println("File has been downloaded successfully.");
+                System.out.println("File " + downloadFile.substring(downloadFile.lastIndexOf("/") + 1, downloadFile.length()) + " has been downloaded successfully.");
             }
         }catch (IOException e){
             System.out.println("Can't close output stream");

@@ -51,6 +51,7 @@ public class CreateCatalog {
                 System.out.println(file);
             }
 
+        //recursive way to list folders
 //       public static void catalogList(FTPClient ftpClient,String parentDir, String currentDir, int level) throws IOException {
 //        String dirList = parentDir;
 //        if (!currentDir.equals("")){
